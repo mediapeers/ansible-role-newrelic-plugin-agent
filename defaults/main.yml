@@ -1,2 +1,5 @@
 ---
 # defaults file for mpx.newrelic-plugin-agent
+
+nr_licence_key: abc
+newrelic_plugins: []

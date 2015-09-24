@@ -1,2 +1,24 @@
 ---
 # tasks file for mpx.newrelic-plugin-agent
+
+# Installs pyhon packages
+- name: Installs python apt packages on the system
+  apt:
+    name: '{{item}}'
+    state: latest
+    update_cach: yes
+  with_items:
+    - python-pip
+    - python-dev
+
+# Installs newrelic-plugin-agent
+- name: Installs newrelic-plugin-agent
+  pip:
+    name: newrelic-plugin-agent
+    state: latest
+
+# Configures newrelic-plugin-agent
+- name: Configuring plugin agent
+  template:
+    src: newrelic-plugin-agent.cfg.j2
+    dest: /etc/newrelic/newrelic-plugin-agent.cfg
