@@ -1,2 +1,6 @@
 ---
 # vars file for mpx.newrelic-plugin-agent
+
+newrelic_config_dir: /etc/newrelic
+newrelic_plugin_agent_log_dir: /var/log/newrelic
+newrelic_deamon_user: newrelic

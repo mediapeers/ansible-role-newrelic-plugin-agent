@@ -1,0 +1,20 @@
+# Upstart script to be in /etc/init/newrelic-plugin-agent.conf
+
+description "Newrelic plugin-agent upstart script. For monitoring different software through Newrelic"
+author "Stefan Horning <horning@mediapeers.com>"
+
+start on (filesystem and runlevel [2345])
+stop on runlevel [06]
+
+# Respawn service if it dies
+respawn
+# How often to retry | timeout:
+respawn limit 10 5
+# List of exit states not considered as normal
+normal exit 0 TERM USR1
+
+script
+  # Make sure /etc/newrelic/newrelic-plugin-agent.cfg contains a valid config.
+  # runs as deamon by default, using pid- and log-dir as described in config!
+  newrelic-plugin-agent -c {{newrelic_config_dir}}/newrelic-plugin-agent.cfg
+end script

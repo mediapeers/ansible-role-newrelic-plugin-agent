@@ -1,2 +1,7 @@
 ---
 # handlers file for mpx.newrelic-plugin-agent
+
+- name: restart newrelic-plugin-agent
+  service:
+    name: newrelic-plugin-agent
+    state: restarted

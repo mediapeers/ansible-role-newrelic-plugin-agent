@@ -32,7 +32,7 @@ Example integration into existing playbook.
           port: 9200
           name: my_cluster
   roles:
-    - mpx.newrelic-plugin
+    - mpx.newrelic-plugin-agent
 ```
 
 ## License

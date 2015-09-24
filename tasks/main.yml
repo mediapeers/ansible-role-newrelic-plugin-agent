@@ -18,7 +18,22 @@
     state: latest
 
 # Configures newrelic-plugin-agent
-- name: Configuring plugin agent
+- name: Ensuring the config and log dir exist
+  file:
+    path: '{{item}}'
+    state: directory
+  with_items:
+    - '{{newrelic_config_dir}}'
+    - '{{newrelic_plugin_agent_log_dir}}'
+
+- name: Configuring the plugin agent
   template:
     src: newrelic-plugin-agent.cfg.j2
-    dest: /etc/newrelic/newrelic-plugin-agent.cfg
+    dest: {{newrelic_config_dir}}/newrelic-plugin-agent.cfg
+
+- name: Create newrelic-plugin-agent upstart script
+  template:
+    src: newrelic-plugin-agent.conf.j2
+    dest: /etc/init/newrelic-plugin-agent.conf
+  notify:
+    - restart newrelic-plugin-agent
