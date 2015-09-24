@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  remote_user: root
+  vars:
+    newrelic_plugins:
+      - nginx:
+          host: localhost
+          port: 8080
+          path: /stub_status/
+      - elasticsearch:
+          host: localhost
+          port: 9200
+          name: my_cluster
+  roles:
+    - ansible-role-newrelic-plugin-agent
