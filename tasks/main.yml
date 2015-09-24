@@ -29,7 +29,7 @@
 - name: Configuring the plugin agent
   template:
     src: newrelic-plugin-agent.cfg.j2
-    dest: {{newrelic_config_dir}}/newrelic-plugin-agent.cfg
+    dest: '{{newrelic_config_dir}}/newrelic-plugin-agent.cfg'
 
 - name: Create newrelic-plugin-agent upstart script
   template:

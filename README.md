@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mediapeers/ansible-role-newrelic-plugin-agent.svg?branch=master)](https://travis-ci.org/mediapeers/ansible-role-newrelic-plugin-agent)
+
 # Ansible role for newrelic-plugin-agent
 This ansible role will install and configure the [Newrelic plugin agent](https://github.com/MeetMe/newrelic-plugin-agent). Based on the parameters it will setup the plugin agent to monitor
 different software packages.
