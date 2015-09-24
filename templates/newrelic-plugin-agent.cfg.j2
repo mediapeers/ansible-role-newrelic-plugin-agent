@@ -4,8 +4,8 @@ Application:
   license_key: {{nr_licence_key}}
   poll_interval: 30
 
-{% for package in newrelic_plugins %}
-  {{package}}
+{% for plugin in newrelic_plugins %}
+  {{plugin|to_nice_yaml}}
 {% endfor %}
 
 Daemon:
