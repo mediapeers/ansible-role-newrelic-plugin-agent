@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe "Newrelic plugin agent setup" do
   plugin_configs = ANSIBLE_VARS.fetch('newrelic_plugins', 'FAIL')
+  nr_licence_key = ANSIBLE_VARS.fetch('nr_licence_key', 'FAIL')
+  nginx_status_page = ANSIBLE_VARS.fetch('nginx_status_page', 'FAIL')
 
   describe package('python-pip') do
     it { should be_installed }
@@ -12,11 +14,12 @@ describe "Newrelic plugin agent setup" do
   end
 
   describe file('/etc/newrelic/newrelic-plugin-agent.cfg') do
-    it { should exist }
+    it { should be_file }
     plugin_configs.each do |elem|
       config_string = elem.to_yaml.delete("-\"").gsub("\n", "\n  ").strip
-      its(:content) { should include(config_string) }
+      its(:content) { should include(config_string.gsub("{{nginx_status_page}}", nginx_status_page)) }
     end
+    its(:content) { should include("license_key: #{nr_licence_key}") }
   end
 
   describe file('/etc/init/newrelic-plugin-agent.conf') do
