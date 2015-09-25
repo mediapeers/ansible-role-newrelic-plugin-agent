@@ -14,7 +14,7 @@ describe "Newrelic plugin agent setup" do
   describe file('/etc/newrelic/newrelic-plugin-agent.cfg') do
     it { should exist }
     plugin_configs.each do |elem|
-      config_string = elem.to_yaml.delete("-").gsub("\n", "\n  ").strip
+      config_string = elem.to_yaml.delete("-\"").gsub("\n", "\n  ").strip
       its(:content) { should include(config_string) }
     end
   end
@@ -26,6 +26,6 @@ describe "Newrelic plugin agent setup" do
 
   describe service('newrelic-plugin-agent') do
     it { should be_enabled }
-    it { should be_running }.
+    it { should be_running }
   end
 end
