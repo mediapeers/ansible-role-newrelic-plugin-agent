@@ -38,7 +38,5 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
   # Run serverspec
-  - ls /usr/local/lib/python2.7/dist-packages/
-  - newrelic-plugin-agent -h
-  - pip list | grep newrelic
+  - pip list
   - rake spec
