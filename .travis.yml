@@ -39,5 +39,6 @@ script:
 
   # Run serverspec
   - ls /usr/local/lib/python2.7/dist-packages/
-  - pip show newrelic-plugin-agent
+  - newrelic-plugin-agent -h
+  - pip list | grep newrelic
   - rake spec
