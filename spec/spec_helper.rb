@@ -2,7 +2,7 @@ require 'serverspec'
 require 'yaml'
 
 set :backend, :exec
-set :pre_command, 'sudo -s'
+#set :pre_command, 'sudo -s'
 
 # Getting the ansible variables from included vars_files and
 # playbook vars to be usable in the tests
