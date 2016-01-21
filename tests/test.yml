@@ -2,6 +2,7 @@
 - hosts: localhost
   become: true
   vars:
+    nr_licence_key: abcdefg123
     newrelic_plugins:
       - nginx:
           host: localhost
