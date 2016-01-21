@@ -42,3 +42,4 @@ script:
 
   # Run serverspec
   - rake spec
+  - echo "You should also test this role with nr_licence key being set as the travis test doesn't cover this (needs real key)!"

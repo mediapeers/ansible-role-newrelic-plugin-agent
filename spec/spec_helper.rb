@@ -4,6 +4,11 @@ require 'yaml'
 set :backend, :exec
 #set :pre_command, 'sudo -s'
 
+# Identifier for specs being run from inside this role
+# and not from a playbook repo/location that doesn't know
+# internal role params
+INSIDE_ROLE=true
+
 # Getting the ansible variables from included vars_files and
 # playbook vars to be usable in the tests
 vars_files = ["defaults/main.yml", "vars/main.yml"]
