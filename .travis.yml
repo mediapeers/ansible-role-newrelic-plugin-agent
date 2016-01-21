@@ -38,4 +38,5 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
   # Run serverspec
+  - pip list
   - rake spec
