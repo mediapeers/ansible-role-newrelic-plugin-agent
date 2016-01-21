@@ -18,7 +18,7 @@ install:
   - sudo apt-get install -y python-pip python-dev
   - python --version
   - pip --version
-  - pip install ansible
+  - sudo pip install ansible
   - ansible --version
 
   # Add ansible.cfg to pick up roles path.
