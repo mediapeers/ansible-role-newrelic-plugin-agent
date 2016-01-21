@@ -13,6 +13,18 @@ describe "Newrelic plugin agent setup" do
     it { should be_installed }
   end
 
+  describe package('newrelic-plugin-agent') do
+    it { should be_installed.by('pip') }
+  end
+
+  describe file(ANSIBLE_VARS.fetch('newrelic_config_dir', 'FAIL')) do
+    it { should be_directory }
+  end
+
+  describe file(ANSIBLE_VARS.fetch('newrelic_plugin_agent_log_dir', 'FAIL')) do
+    it { should be_directory }
+  end
+
   if nr_licence_key != 'FAIL'
     describe file('/etc/newrelic/newrelic-plugin-agent.cfg') do
       it { should be_file }
