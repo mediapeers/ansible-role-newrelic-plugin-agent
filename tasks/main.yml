@@ -17,14 +17,6 @@
     name: newrelic-plugin-agent
     state: latest
 
-- name: List pip packages
-  command: pip list
-  register: pip_list
-
-- name: Output pip list
-  debug:
-    msg: "{{ pip_list.stdout }}"
-
 # Configures newrelic-plugin-agent
 - name: Ensuring the config and log dir exist
   file:

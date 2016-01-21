@@ -38,4 +38,6 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
   # Run serverspec
+  - ls /usr/local/lib/python2.7/dist-packages/
+  - pip show newrelic-plugin-agent
   - rake spec
