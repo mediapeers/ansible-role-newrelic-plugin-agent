@@ -1,6 +1,7 @@
 ---
 sudo: required
 dist: trusty
+# Do not use the travis languague setups (install ruby/python manually) for ansible tests!
 language: shell
 
 env:
@@ -10,7 +11,7 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  # Install ruby for running serverspec
+  # Install ruby for and serverspec gem
   - sudo apt-get install -y ruby
   - ruby -v
   - gem install serverspec
@@ -19,7 +20,7 @@ install:
   - sudo apt-get install -y python-pip python-dev
   - python --version
   - pip --version
-  - sudo pip install ansible
+  - sudo -H pip install ansible
   - ansible --version
 
   # Add ansible.cfg to pick up roles path.
@@ -40,6 +41,4 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
   # Run serverspec
-  - pip list
-  - sudo pip list
   - rake spec
