@@ -18,7 +18,10 @@ Following variables should be provided:
 Doesn't depend on any other ansible roles
 
 ## Example Playbook
-Example integration into existing playbook.
+Copy this role into the `roles/mediapeers.newrelic-plugin-agent` dir in your Ansible project. Preferably add it as a submodule.
+You can also install it with `ansible-galaxy install mediapeers.newrelic-plugin-agent`.
+
+Then use it like so:
 ```yaml
 - name: Some Playbook
   hosts: servers
@@ -34,7 +37,7 @@ Example integration into existing playbook.
           port: 9200
           name: my_cluster
   roles:
-    - mpx.newrelic-plugin-agent
+    - mediapeers.newrelic-plugin-agent
 ```
 
 ## License

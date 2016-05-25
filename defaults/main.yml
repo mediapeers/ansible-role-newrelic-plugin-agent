@@ -1,5 +1,5 @@
 ---
-# defaults file for mpx.newrelic-plugin-agent
+# defaults file for mediapeers.newrelic-plugin-agent
 
 # nr_licence_key: Should be defined
 newrelic_plugins: []

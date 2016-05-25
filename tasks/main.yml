@@ -1,5 +1,5 @@
 ---
-# tasks file for mpx.newrelic-plugin-agent
+# tasks file for mediapeers.newrelic-plugin-agent
 
 # Installs pyhon packages
 - name: Installs python apt packages on the system

@@ -1,5 +1,5 @@
 ---
-# handlers file for mpx.newrelic-plugin-agent
+# handlers file for mediapeers.newrelic-plugin-agent
 
 - name: restart newrelic-plugin-agent
   service:
