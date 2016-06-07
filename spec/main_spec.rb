@@ -27,6 +27,15 @@ describe "Newrelic plugin agent setup" do
     end
   end
 
+  describe file('/etc/init.d/newrelic-plugin-agent') do
+    it { should be_file }
+    it { should be_mode 0775 }
+  end
+
+  describe service('newrelic-plugin-agent') do
+    it { should be_enabled }
+  end
+
   if nr_licence_key != 'FAIL'
     describe file('/etc/newrelic/newrelic-plugin-agent.cfg') do
       it { should be_file }
